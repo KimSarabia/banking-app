@@ -1,0 +1,24 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #9b59b6;
+}
+
+a {
+  color: #9b59b6;
+}
+
+nav ul a {
+
+    color: #9b59b6;
+
+}
+
+nav .brand-logo {
+    position: absolute;
+    color: #9b59b6;
+    display: inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+    white-space: nowrap;
+}

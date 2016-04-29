@@ -1,0 +1,102 @@
+<div ng-controller="adminCtrl">
+<h1>ADMIN</h1>
+      <a ng-show ="allShow" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons" ng-click="addNewTrans()">Add</i></a>
+
+  <div class="allTrans" ng-show="allShow">
+
+      <div class="row"  ng-repeat="trans in allTrans track by $index">
+        <div class="col s6 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{trans.type}} | {{trans.amount}} | {{trans.name}}</span>
+              <p>Amount: {{trans.amount}}</p>
+              <p>Name: {{trans.name}}</p>
+              <p>Date: {{trans.date}}</p>
+              <p>Note: {{trans.note}}</p>
+            </div>
+            <div class="card-action">
+              <a ng-click="modifyT(this)">Modify</a>
+              <a ng-click="deleteT(this)">Delete</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+
+
+    <form class="col s12" ng-show="modShow">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="type" type="text" class="validate" ng-model="update.type">
+          <label class ="active" for="Type">Type: </label>
+        </div>
+        <div class="input-field col s6">
+          <input id="name" type="text" class="validate" ng-model="update.name">
+          <label class ="active" for="name">Name: </label>
+        </div>
+        <div class="input-field col s6">
+          <input id="amount" type="number" class="validate" ng-model="update.amount">
+          <label class ="active" for="Amount">Amount: </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input class ="validate" id="date" type="date" ng-model="update.date">
+          <label class ="active" for="date">Date: </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="note" type="text" class="validate" ng-model="update.note">
+          <label class ="active" for="note">Note: </label>
+        </div>
+      </div>
+      <div class="row">
+  <button ng-click ="updateT(this)" class="btn waves-effect waves-light" type="submit" name="update">Update
+  </button>
+  <button ng-click ="quitUpdate()" class="btn waves-effect waves-light" type="submit" name="quit">Exit
+  </button>
+      </div>
+    </form>
+
+<div class="addNewT" ng-show="addShow">
+      <form name ="addNew" class="col s12" >
+      <div class="row">
+        <div class="input-field col s6">
+          <input required id="type" type="text" class="validate" ng-model="newT.type">
+          <label class ="active" for="Type">Type: </label>
+        </div>
+        <div class="input-field col s6">
+          <input required id="name" type="text" class="validate" ng-model="newT.name">
+          <label class ="active" for="name">Name: </label>
+        </div>
+        <div class="input-field col s6">
+          <input required id="amount" type="number" class="validate" ng-model="newT.amount">
+          <label class ="active" for="Amount">Amount: </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input required id="date" type="date" ng-model="newT.date">
+          <label class ="active" for="date">Date: </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input required id="note" type="text" class="validate" ng-model="newT.note">
+          <label for="note">Note: </label>
+        </div>
+      </div>
+      <div class="row">
+  <button ng-disabled="!(!!newT.type && !!newT.name   && !!newT.amount  && !!newT.date && !!newT.note)" ng-click ="addNewT(newT)" class="btn waves-effect waves-light" type="submit" name="Add">Add
+  </button>
+  <button ng-click ="quitAdd()" class="btn waves-effect waves-light" type="submit" name="quit">Exit
+  </button>
+      </div>
+    </form>
+</div>
+
+
+
+</div>
